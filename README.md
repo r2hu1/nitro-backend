@@ -15,7 +15,7 @@ A lightweight and modular backend template built with [Nitro](https://nitro.buil
 ### Prerequisites
 
 * Node.js (version 16 or higher)
-* Package Manager: [pnpm](https://pnpm.io/)
+* Package Manager: [pnpm](https://pnpm.io/) or [npm](https://npmjs.org/)
 
 ### Installation
 
