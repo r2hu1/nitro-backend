@@ -54,12 +54,21 @@ The server should now be running at `http://localhost:3000`.
 
 ```
 nitro-backend/
-├── server/             # Contains API routes and server logic
-├── .env.example        # Example environment variables
-├── nitro.config.ts     # Nitro configuration file
-├── package.json        # Project metadata and scripts
-├── tsconfig.json       # TypeScript configuration
-└── README.md           # Project documentation
+├── server/                      # Core server logic
+│   ├── routes/                  # API route handlers (REST endpoints)
+│   │   ├── auth/                # Authentication endpoints (login, register, etc.)
+│   │   ├── user/                # User-related endpoints (profile, update, etc.)
+│   │   └── index.ts             # Example base route
+│   ├── middleware/              # Nitro middlewares (auth checks, request logging)
+│   ├── models/                  # mongoose models (user, password, otp)
+│   └── utils/                   # Utility functions (encryption, JWT helpers)
+│
+├── .env.example                # Environment variable template
+├── nitro.config.ts            # Nitro configuration (routes, presets, etc.)
+├── package.json               # Project metadata, scripts, and dependencies
+├── tsconfig.json              # TypeScript compiler configuration
+└── README.md                  # Project documentation
+
 ```
 
 
