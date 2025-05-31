@@ -60,7 +60,7 @@ nitro-backend/
 │   │   ├── user/                # User-related endpoints (profile, update, etc.)
 │   │   └── index.ts             # Example base route
 │   ├── middleware/              # Nitro middlewares (auth checks, request logging)
-│   ├── models/                  # mongoose models (user, password, otp)
+│   ├── models/                  # mongoose models (user, otp)
 │   └── utils/                   # Utility functions (encryption, JWT helpers)
 │
 ├── .env.example                # Environment variable template
