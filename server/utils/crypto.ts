@@ -7,8 +7,7 @@ dotenv.config();
 
 const encryptionKey = process.env.ENCRYPTION_KEY;
 if (!encryptionKey) {
-  // throw new Error("Encryption key is not set");
-  console.log(encryptionKey);
+  throw new Error("Encryption key is not set");
 }
 
 export const encrypt = (data: string): string => {
