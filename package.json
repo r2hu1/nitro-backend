@@ -13,6 +13,7 @@
     "@react-email/components": "^0.0.41",
     "@tsmx/string-crypto": "^1.0.6",
     "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
     "dotenv": "^16.5.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1",
