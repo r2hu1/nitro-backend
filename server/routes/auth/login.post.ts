@@ -1,7 +1,6 @@
 import { Model } from "mongoose";
 import User, { IUser } from "~/models/user";
 import { generateEncryptedToken } from "~/utils/auth";
-import connectDB from "~/utils/db";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
@@ -14,7 +13,6 @@ export default defineEventHandler(async (event) => {
       }),
     );
   }
-  await connectDB();
   const user = await (User as Model<IUser>).findOne({ email: body.email });
   if (!user) {
     return sendError(

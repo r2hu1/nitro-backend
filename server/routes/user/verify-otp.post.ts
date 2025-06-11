@@ -1,10 +1,8 @@
 import { Model } from "mongoose";
 import { IOtpModel, Otp } from "~/models/otp";
 import User, { IUser } from "~/models/user";
-import connectDB from "~/utils/db";
 
 export default defineEventHandler(async (event) => {
-  await connectDB();
   const { otp } = await readBody(event);
   const { id } = event.context.user;
 

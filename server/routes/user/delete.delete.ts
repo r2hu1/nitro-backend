@@ -1,12 +1,10 @@
 import { Model } from "mongoose";
 import User, { IUser } from "~/models/user";
-import connectDB from "~/utils/db";
 
 export default defineEventHandler(async (event) => {
   try {
     const { id } = event.context.user;
 
-    await connectDB();
     await (User as Model<IUser>).findByIdAndDelete(id);
 
     return {

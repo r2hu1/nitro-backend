@@ -1,8 +1,7 @@
 import { Model } from "mongoose";
 import User, { IUser } from "~/models/user";
-import connectDB from "~/utils/db";
-import saveOtpForUser from "~/utils/save-otp";
-import sendEmail from "~/utils/send-email";
+import saveOtpForUser from "~/utils/db_helper/save-otp";
+import sendEmail from "~/utils/mail_helper/send-email";
 
 export default defineEventHandler(async (event) => {
   const { email, id } = event.context.user;
@@ -12,7 +11,6 @@ export default defineEventHandler(async (event) => {
       statusMessage: "Invalid user data",
     });
   }
-  await connectDB();
   const userStatus = await (User as Model<IUser>).findById({ _id: id });
   if (userStatus.status != "unverified") {
     return createError({

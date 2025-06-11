@@ -1,14 +1,12 @@
 import { Model } from "mongoose";
 import { IOtpModel, Otp } from "~/models/otp";
 import User, { IUser } from "~/models/user";
-import connectDB from "~/utils/db";
 
 export default defineEventHandler(async (event) => {
   const { email } = await readBody(event);
   if (!email) {
     return createError({ statusCode: 400, statusMessage: "Email is required" });
   }
-  await connectDB();
   const user = await (User as Model<IUser>).findOne({ email });
   if (!user) {
     return createError({ statusCode: 404, statusMessage: "User not found" });
