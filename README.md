@@ -86,6 +86,7 @@ The server should now be running at `http://localhost:3000`.
 │       └── mail_helper
 │           └── send-email.ts
 ├── package.json
+├── nitro.config.ts
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
 ├── README.md
