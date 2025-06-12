@@ -6,8 +6,9 @@ A lightweight and modular backend template built with [Nitro](https://nitro.buil
 
 * **Nitro-Powered**: Utilizes Nitro, a next-generation server toolkit, for rapid development and deployment.
 * **JWT Authentication**: Implements JSON Web Token (JWT) for secure user authentication.
-* **Encryption**: Includes built-in mechanisms for data encryption to enhance security.
-* **Database Integration**: Pre-configured to connect with databases, facilitating data management.
+* **Nodemailer**: Send email's pogrammitically.
+* **Encryption**: Includes built-in mechanisms for data encryption to enhance security. (nodejs - crypto)
+* **Database Integration**: Pre-configured to connect with databases, facilitating data management. ( mongodb with mongoose)
 * **Modular Structure**: Organized codebase promoting scalability and maintainability.
 
 ## Getting Started
@@ -53,21 +54,42 @@ The server should now be running at `http://localhost:3000`.
 ## Project Structure
 
 ```
-nitro-backend/
-├── server/                      # Core server logic
-│   ├── routes/                  # API route handlers (REST endpoints)
-│   │   ├── auth/                # Authentication endpoints (login, register, etc.)
-│   │   ├── user/                # User-related endpoints (profile, update, etc.)
-│   │   └── index.ts             # Example base route
-│   ├── middleware/              # Nitro middlewares (auth checks, request logging)
-│   ├── models/                  # mongoose models (user, otp)
-│   └── utils/                   # Utility functions (encryption, JWT helpers)
-│
-├── .env.example                # Environment variable template
-├── nitro.config.ts            # Nitro configuration (routes, presets, etc.)
-├── package.json               # Project metadata, scripts, and dependencies
-├── tsconfig.json              # TypeScript compiler configuration
-└── README.md                  # Project documentation
+├── server
+│   ├── middleware
+│   │   ├── cors.ts
+│   │   └── index.ts
+│   ├── models
+│   │   ├── otp.ts
+│   │   └── user.ts
+│   ├── plugins
+│   │   ├── env.ts
+│   │   └── mongoose.ts
+│   ├── routes
+│   │   ├── auth
+│   │   │   ├── forgot-password.post.ts
+│   │   │   ├── login.post.ts
+│   │   │   ├── register.post.ts
+│   │   │   └── reset-password.post.ts
+│   │   ├── email
+│   │   │   └── send-otp.get.ts
+│   │   ├── index.ts
+│   │   └── user
+│   │       ├── delete.delete.ts
+│   │       ├── get.get.ts
+│   │       └── verify-otp.post.ts
+│   └── utils
+│       ├── auth.ts
+│       ├── crypto.ts
+│       ├── db_helper
+│       │   ├── connect.ts
+│       │   └── save-otp.ts
+│       └── mail_helper
+│           └── send-email.ts
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── README.md
+└── tsconfig.json
 
 ```
 
